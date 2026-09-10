@@ -4,10 +4,10 @@ import pandas as pd
 from scipy import stats
 from matplotlib import pyplot as plt
 
-#Dataset selection
+#Dataset loading
 df=pd.read_csv("data/behavioural_data.txt", sep=" ")
 
-# Rename ambiguous FET variable
+#Rename ambiguous FET variable
 df=df.rename(columns={"FET.outside.time": "FET.novel_arena_time"})
 
 #Dataset inspection
@@ -126,7 +126,7 @@ stat_distance_OFT=descriptive_stat(distance_complex_OFT, distance_scarce_OFT)
 
 
 
-#FETdataframe
+###FETdataframe
 ##latency
 latency_complex_FET=df_FET[df_FET["environment"]=="complex"]["FET.latency"]
 latency_scarce_FET=df_FET[df_FET["environment"]=="scarce"]["FET.latency"]
@@ -621,7 +621,7 @@ def add_significance_bar(group1,group2,pvalue):
     #"center" to center the text horizontally
     plt.text(1.5,y*1.03,stars,ha="center")
 
-##Figure to compare scarce vs complex environnement
+##Figures assessing potential training effects
 #EPM test
 #Duration in open arms
 plt.figure()  
